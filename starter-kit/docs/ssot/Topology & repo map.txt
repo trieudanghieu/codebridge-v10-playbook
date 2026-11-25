@@ -1,0 +1,36 @@
+# TOPOLOGY & REPOSITORY MAP (SSOT)
+# Lưu ý: Cập nhật file này 1 lần vào cuối Sprint sau khi Tab 1 cấp [🟢 SPRINT CLEAN]
+
+## 1. PHÂN BỔ CỔNG MẠNG & DỊCH VỤ
+- Traefik Web Ingress : 443 (HTTPS Clean FQDN)
+- Frontend (Next.js)    : 3000 (Standalone Server, HOSTNAME=0.0.0.0)
+- Backend (Express API) : 3001 (API Gateway & Workers)
+- PostgreSQL 16         : 5432 (Internal Docker Network + pgvector)
+- Redis                 : 6379 (Internal Docker Network - BullMQ & Mutex)
+
+## 2. CÂY THƯ MỤC CHUẨN DỰ ÁN
+/
+├── docs/
+│   ├── ssot/                         # Kho Nguồn Chân Lý Duy Nhất (Gitingest gom gọn 1-click)
+│   │   ├── PID.md                    # Hiến pháp & Đặc tả tổng thể 10 phần
+│   │   ├── Topology & repo map.txt   # File này
+│   │   ├── codebridge.md             # Runbook hạ tầng Coolify & biến môi trường
+│   │   ├── .codebridgerules          # Luật code AVSA & Bảo mật
+│   │   ├── CHANGELOG.md              # Lịch sử thay đổi theo từng Sprint / CR
+│   │   └── DECISION_LOG.md           # Sổ cái quyết định kiến trúc (ADR)
+│   └── changes/                      # Kho Delta Specs (Brownfield)
+│       ├── CR-001-ten-dot-nang-cap.md
+│       └── archived/                 # Lưu các CR đã hoàn thành & đóng Sprint
+├── prisma/
+│   └── schema.prisma                 # Lược đồ dữ liệu PostgreSQL + pgvector
+├── src/
+│   ├── modules/                      # [AVSA V9.0] Các Lát cắt dọc độc lập (< 120-300 dòng/file)
+│   │   └── <feature-name>/
+│   │       ├── types.ts
+│   │       ├── service.ts
+│   │       ├── controller.ts
+│   │       └── routes.ts
+│   ├── types/                        # Interfaces / DTOs dùng chung toàn cục
+│   ├── middlewares/                  # Auth, IDOR verifyProjectAccess, Rate-limit
+│   └── lib/                          # Prisma client, Redis lock, Logger an toàn
+└── package.json

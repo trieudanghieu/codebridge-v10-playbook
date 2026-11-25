@@ -1,0 +1,5 @@
+A. Lệnh kích hoạt gửi cho Tab 1 (ở Bước 0.5)
+Sau khi nạp 1 file phẳng toàn bộ Codebase (tải từ gitingest.com) vào Tab 1, bạn gửi đúng câu lệnh ngắn này:
+MODE-0: STRATEGIC-RECON-FOR-TAB-0
+Bối cảnh: App đang chạy thực tế và gặp các vấn đề/lỗi sau: [Dán mô tả lỗi / Log lỗi Coolify / Điểm yếu muốn nâng cấp].
+Nhiệm vụ: Thực hiện chụp X-quang toàn cục codebase (so sánh code thật với PID.md và repo_map), tuyệt đối KHÔNG viết code sửa lỗi. Hãy xuất ra # 🩺 [STRATEGIC HEALTH & ROOT-CAUSE BRIEF] ngắn gọn để tôi mang sang Tab 0 (Founding CTO) làm đầu vào thiết kế giải pháp đột phá.

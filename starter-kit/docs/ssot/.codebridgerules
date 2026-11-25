@@ -1,0 +1,25 @@
+# CODEBRIDGE PROJECT RULES (V10 - AVSA & ZERO-REGRESSION CONSTITUTION)
+
+1. **AVSA V9.0 Modular Limits:**
+   - File tạo mới: Mục tiêu `< 120` dòng, trần cứng `300` dòng code. Chạm `250` dòng bắt buộc tách module con.
+   - File di sản (`>= 1.000` dòng): Trạng thái `READ-ONLY`. Chỉ được phép cấy Delegation Adapter tối đa `3–5` dòng gọi sang `src/modules/[feature]/`.
+   - Cấu trúc module chuẩn: `src/modules/<feature>/{types.ts, service.ts, controller.ts, routes.ts}`.
+
+2. **TypeScript & Code Integrity:**
+   - Nghiêm cấm dùng `any` (Zero-Any Strict Mode). Mọi payload API phải validate (Zod/Valibot) trước khi xử lý.
+   - Nghiêm cấm `// ... existing code ...` hoặc cắt xén logic cũ.
+   - Cấm để lại biến/import/prop mồ côi (`Orphaned Identifiers`) sau khi xóa hoặc đổi tên state.
+
+3. **Security & Environment (ISO 27001):**
+   - 100% secrets/keys/DB URI phải đọc qua `process.env`. Tuyệt đối không hardcode vào mã nguồn.
+   - Mọi endpoint thao tác dữ liệu theo `projectId` / `resourceId` bắt buộc gọi lớp kiểm tra quyền sở hữu (`verifyProjectAccess` / IDOR check).
+   - Che/lọc token nhạy cảm trước khi ghi log.
+
+4. **SRE, Memory Safety & Networking:**
+   - Mọi lệnh gọi ngoại vi (LLM API, HTTP fetch, container runner) bắt buộc có timeout (`<= 8000ms` hoặc `15000ms` tùy tác vụ) và `try/catch/finally` dọn sạch `clearTimeout`/`clearInterval`/event listeners để chống tràn RAM (OOM 137).
+   - Thao tác đồng thời trên cùng tài nguyên bắt buộc dùng Redis Mutex Lock.
+   - Giao tiếp Git/Webhook chuẩn HTTPS Port `443` FQDN; cấm dùng SSH Port `2222` cho Coolify Ingress.
+   - Tuyệt đối không chạy `prisma db push` trên Production; chỉ dùng `prisma migrate deploy`.
+
+5. **Data-Mirror Invariant (Nếu có cây thư mục ảo):**
+   - Thao tác đổi tên/xóa/thêm tệp tin phải đồng bộ nguyên tử cả 3 hình thái: SQL (`FileNode`) = JSON (`ContextVault.directoryTree`) = Text (`repo-map.txt`).
