@@ -3,6 +3,7 @@
 > **Trung tâm Chỉ huy & Bộ não Quy trình Phát triển Phần mềm 4 Buồng Lái V10**  
 > Vận hành **100% trên trình duyệt Web** (`Google AI Studio` + `GitHub` + `Gitingest` + `vscode.dev` + `Coolify Webhook`) — Không cần IDE hay Terminal trên máy cá nhân.
 
+> 🧭 **MỚI BẮT ĐẦU HOẶC CHƯA BIẾT LÀM GÌ?** Hãy mở **[Tab Hướng Dẫn](./instructions/tab-huong-dan.md)** đầu tiên trên AI Studio — đây là Trợ lý GPS 1-1 sẽ chào hỏi, chỉ dẫn từng cú click chuột, viết hộ prompt và bắt bệnh lỗi cho bạn ở mọi bước!
 ---
 
 ## ⚡ 1. Trạm Mở Nhanh Công Cụ (Web Cockpit)
@@ -24,6 +25,7 @@
 
 | Tab | Danh tính & Vai trò | Ngưỡng Ngữ cảnh | File System Instruction |
 | :---: | :--- | :---: | :--- |
+| **Tab Hướng Dẫn** *(Sidecar GPS)* | **Live Co-Pilot & Mentor 1-1** — Đón tiếp người mới, cầm tay chỉ việc từng bước, soạn prompt hộ & gỡ rối lỗi thực tế | Nhẹ (Mở đầu & Gỡ rối) | [tab-huong-dan.md](./instructions/tab-huong-dan.md) |
 | **Tab 0** | **Founding CTO & Product Strategist** — Phản biện 7 Powers, Pre-Mortem, xuất `CR-xxx.md` (Brownfield) hoặc 4 file gốc (Greenfield) | Sạch (`SSOT + Brief`) | [tab-0-strategist-cto.md](./instructions/tab-0-strategist-cto.md) |
 | **Tab 1** | **Radar Scanner AST (Tri-Mode)** — `Mode 0` khám tổng thể cho Tab 0; `Pha 1` xuất Manifest + chuỗi Gitingest; `Pha 2` Hậu kiểm giữ quyền VETO | Lớn (`500k–1M tokens`) | [tab-1-radar-scanner.md](./instructions/tab-1-radar-scanner.md) |
 | **Tab 2** | **Chief AI Architect & Supreme Judge** — Đúc Blueprint 2 Làn (`S&R` / `Full-File`) & Audit 5 Cửa ải Tử thần | Sạch (`< 80k tokens`) | [tab-2-architect-judge.md](./instructions/tab-2-architect-judge.md) |
